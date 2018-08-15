@@ -1,9 +1,11 @@
-git init    初始化仓库
+git init    	初始化仓库
 
-git add    添加文件到仓库
+git add    	添加文件到仓库
 
 git commit -m "提交说明"    提交文件到仓库
 
 git status	查看仓库状态，跟filename查看指定文件状态，不加查看所有文件状态 
 
 git diff	查看文件做了那些修改
+
+git log		查看提交记录
