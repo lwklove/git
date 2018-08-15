@@ -9,3 +9,5 @@ git status	查看仓库状态，跟filename查看指定文件状态，不加查�
 git diff	查看文件做了那些修改
 
 git log		查看提交记录
+
+git reset --hard HEAD^ 	回退到上个版本，HEAD^^回退到上上个版本，GEAD~100回退上100个版本，commit id 回退或者恢复指定提交版本，无需全部id号，确定唯一即可
