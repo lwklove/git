@@ -24,3 +24,12 @@ git commit 提交暂存区文件到当前分支
 修改文件
 git commit -m ""
 由于没有执行git add 把工作区文件提交到暂存区 修改不生效
+
+两种情况下的撤销修改：
+1、文件只是修改没有  git add 也就没有 git commit -m "" 
+    git checkout -- filename	注意 "--"必须，否则是切换分支
+
+2、文件修改后 git add 到暂存区  没有 git commit -m "" 提交到分支
+    git reset HEAD filename    把暂存区的修改撤销掉，重新放回工作区
+    git checkout -- filename   丢弃工作区的修改
+    
