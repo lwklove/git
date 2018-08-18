@@ -15,3 +15,12 @@ git reset --hard HEAD^ 	回退到上个版本，HEAD^^回退到上上个版本�
 git reflog	记录每一次操作的命令，回退版本时在恢复，可使用此命令查看 commit id
 
 git diff HEAD -- filename	对比工作区和版本库里面最新版本的区别
+
+修改文件
+执行顺序：git add filename => git commit -m ""
+git add 提交 工作区文件到暂存区 
+git commit 提交暂存区文件到当前分支
+
+修改文件
+git commit -m ""
+由于没有执行git add 把工作区文件提交到暂存区 修改不生效
