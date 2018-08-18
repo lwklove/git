@@ -13,3 +13,5 @@ git log		查看提交记录
 git reset --hard HEAD^ 	回退到上个版本，HEAD^^回退到上上个版本，GEAD~100回退上100个版本，commit id 回退或者恢复指定提交版本，无需全部id号，确定唯一即可
 
 git reflog	记录每一次操作的命令，回退版本时在恢复，可使用此命令查看 commit id
+
+git diff HEAD -- filename	对比工作区和版本库里面最新版本的区别
