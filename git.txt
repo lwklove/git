@@ -52,3 +52,12 @@ rm filename    从本地删除文件
 
 	2、git checkout -- filename    从版本库恢复文件到本地
     git rm filename 和 git checkout -- filename    执行过git rm 后执行git checkout -- filename 会报错，文件已经从版本库删除，无法再从版本库恢复
+
+
+远程仓库：
+git remote add origin git@server-name:path/repo-name.git    关联远程仓库
+git remote add origin git@github.com:username/repo.git
+
+git push -u origin master    第一次推送master分支的所有内容
+
+git push origin master    推送最新修改
