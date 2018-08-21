@@ -76,3 +76,8 @@ git checkout dev    切换分支
 合并分支：
 git merge dev    把当前分支合并到master分支
 git branch -d dev    删除分支
+
+合并分支前先切换到master分支：
+git checkout master    切换分支
+git merge dev    合并dev分支到master分支
+git branch -d dev    删除dev分支
