@@ -111,5 +111,7 @@ git branch -d dev    删除dev分支
 
     git log --graph --pretty=oneline --abbrev-commit    查看分支合并情况
 
+    git log --graph    查看分支合并图
+
     git branch -d feature    删除分支
 
