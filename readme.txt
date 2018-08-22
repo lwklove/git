@@ -10,4 +10,4 @@ hello git!
 
 查看指定修改了那些内容：git diff filename
 
-Crating a new branch is quick & simple
+Crating a new branch is quick and simple
