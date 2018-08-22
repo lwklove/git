@@ -9,3 +9,5 @@ hello git!
 查看指定文件或仓库状态：git status
 
 查看指定修改了那些内容：git diff filename
+
+Crating a new branch is quick & simple
