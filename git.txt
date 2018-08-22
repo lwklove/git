@@ -8,7 +8,7 @@ git status	查看仓库状态，跟filename查看指定文件状态，不加查�
 
 git diff	查看文件做了那些修改
 
-git log		查看提交记录
+git log		查看提交记录，加--pretty=oneline参数。在一行显示
 
 git reset --hard HEAD^ 	回退到上个版本，HEAD^^回退到上上个版本，GEAD~100回退上100个版本，commit id 回退或者恢复指定提交版本，无需全部id号，确定唯一即可
 
@@ -81,3 +81,35 @@ git branch -d dev    删除分支
 git checkout master    切换分支
 git merge dev    合并dev分支到master分支
 git branch -d dev    删除dev分支
+
+解决冲突：
+    git checkout -b feature    创建一个新的分支
+    修改readme.txt  添加一行 Creating a new branch is quick AND simple
+    在feature 分支提交
+        git add readme.txt
+	git commit -m "AND simple"
+
+    切换到master分支
+    git checkout master
+    修改readme.txt  添加一行 Crateing a new branch is quick & simple
+    在master分支提交
+        git add readme.txt
+	git commit -m "& simple"
+
+    在master分支合并feature分支
+        git merge feature    提示冲突，必须手动解决
+
+    使用git status查看冲突文件
+
+    查看readme.txt 内容
+        git用<<<<<<<,=======,>>>>>>>标记不同分支的内容
+
+    修改readme.txt内容 Creating a new branch is quick and simle
+    在提交
+        git add readme.txt
+	git commit -m "conflict fixed"
+
+    git log --graph --pretty=oneline --abbrev-commit    查看分支合并情况
+
+    git branch -d feature    删除分支
+
