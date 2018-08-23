@@ -12,4 +12,4 @@ hello git!
 
 Crating a new branch is quick and simple
 
-Switched to a new branch 'dev'
+Switched to a new branch 'bug'

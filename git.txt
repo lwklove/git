@@ -129,3 +129,35 @@ git log --graph --pretty=oneline --ahhrev-commit
 master分支应该是稳定的，仅用来发布新版本，平时不再上面干活
 dev分支，是不稳定的用来干活，到版本发布时，把dev分支合并到master分支上
 每个人都有一个自己分支，时不时往dev分支上合并
+
+Bug分支
+场景：当你接到一个代号101的bug时，很自然去创建一个分支issue-101来修复，但是在dev分支上的工作还没进行提交，因为工作还没有完成，bug又要尽快修复，用到git提供的stash功能，把当前工作现场“储藏”起来，等恢复现场后继续工作。
+
+git stash    "储藏"当前工作现场
+
+确定在那个份上修改bug
+
+git checkout master    切换到待修复bug分支
+git checkout -b issue-101    创建并切换到bug分支
+
+修复后
+git add filename    提交工作区文件到暂存区
+git commit -m ""    提交暂存区文件到版本库
+
+git branch master    切换到master分支
+git merge --no-ff -m "" issue-101(bug分支名)
+
+git checkout dev    切换到dev分支
+
+git stash list    查看“储藏”工作现场
+
+恢复工作现场：
+git stash apply    恢复后stash内容并不删除
+git stash drop    删除stash
+
+git stash pop    恢复同时删除stash内容
+
+多次stash恢复:
+git stash list    查看有哪些stash
+git stash apply    恢复指定satsh
+
