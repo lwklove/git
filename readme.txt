@@ -11,3 +11,5 @@ hello git!
 查看指定修改了那些内容：git diff filename
 
 Crating a new branch is quick and simple
+
+Switched to a new branch 'dev'
