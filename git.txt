@@ -1,23 +1,24 @@
-git init    	初始化仓库
+git init    初始化仓库
 
-git add    	添加文件到仓库
+git add filename    添加文件到仓库
 
 git commit -m "提交说明"    提交文件到仓库
 
-git status	查看仓库状态，跟filename查看指定文件状态，不加查看所有文件状态 
+git status    查看仓库状态，跟filename查看指定文件状态，不加查看所有文件状态 
 
-git diff	查看文件做了那些修改
+git diff filename    查看文件做了那些修改，不指定文件名查看所有
 
-git log		查看提交记录，加--pretty=oneline参数。在一行显示
+git log    查看提交记录，加--pretty=oneline参数。在一行显示
 
 git reset --hard HEAD^ 	回退到上个版本，HEAD^^回退到上上个版本，GEAD~100回退上100个版本，commit id 回退或者恢复指定提交版本，无需全部id号，确定唯一即可
 
-git reflog	记录每一次操作的命令，回退版本时在恢复，可使用此命令查看 commit id
+git reflog    记录每一次操作的命令，回退版本时在恢复，可使用此命令查看 commit id
 
 git diff HEAD -- filename	对比工作区和版本库里面最新版本的区别
 
 修改文件
-执行顺序：git add filename => git commit -m ""
+执行顺序：git add filename 
+          git commit -m ""
 git add 提交 工作区文件到暂存区 
 git commit 提交暂存区文件到当前分支
 
@@ -37,7 +38,7 @@ git commit -m ""
     git reset --hard HEAD^    回退上个版本
 
 删除文件
-vi filename     新建一个文件
+vi filename    新建一个文件
 git add filename    提交文件到暂存区
 git commit -m ""    提交文件到版本库
 
@@ -50,13 +51,12 @@ rm filename    从本地删除文件
 	1、git rm filename    从版本库删除文件
 	   git commit -m ""   并且提交到版本库
 
-	2、git checkout -- filename    从版本库恢复文件到本地
-    git rm filename 和 git checkout -- filename    执行过git rm 后执行git checkout -- filename 会报错，文件已经从版本库删除，无法再从版本库恢复
+	2、git checkout -- filename    从版本库恢复文件到本地，git rm filename 和 git checkout -- filename    执行过git rm 后执行git checkout -- filename 会报错，文件已经从版本库删除，无法再从版本库恢复
 
 
 远程仓库：
 git remote add origin git@server-name:path/repo-name.git    关联远程仓库
-git remote add origin git@github.com:username/repo.git
+git remote add origin git@github.com:username/repo-name.git
 
 git push -u origin master    第一次推送master分支的所有内容
 
