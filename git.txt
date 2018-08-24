@@ -161,3 +161,11 @@ git stash pop    恢复同时删除stash内容
 git stash list    查看有哪些stash
 git stash apply    恢复指定satsh
 
+feature分支：
+场景：开发新功能，先创建一个feature分支，开发好合并到master分支，最后删除feature分支
+git checkout -b feature-vulcan    创建feature分支
+git add vulcan.java    (开发完成)新创建的文件添加到暂存区
+git checkout dev    切换到到dev分支，准备合并
+但是现在因为某些原因，新功能取消，虽然白干了，但是机密资料的分支还是要销毁
+git branch feature-vulcan    删除分支，Git提示分支没有合并不能删除，修改将丢失，如果要强行删除，需要使用大写-D参数
+git branch -D feature-vulcan    强制删除未合并过的分支
