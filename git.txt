@@ -169,3 +169,48 @@ git checkout dev    切换到到dev分支，准备合并
 但是现在因为某些原因，新功能取消，虽然白干了，但是机密资料的分支还是要销毁
 git branch feature-vulcan    删除分支，Git提示分支没有合并不能删除，修改将丢失，如果要强行删除，需要使用大写-D参数
 git branch -D feature-vulcan    强制删除未合并过的分支
+
+多人协作：
+git remote    查看远程仓库信息
+git remote -v    显示仓库详细信息，若是没有推送权限，看不到push地址
+git push origin master    推送分支
+git push origin branch-name    推送指定分支    
+
+抓取分支：
+多人协作时，大家都会往master和dev分支上推送各自修改
+git clone git@github.com:username/repo-name.git    默认抓取master分支
+git checkout -b dev origin/dev    创建远程origin的dev分支到本地
+
+git add filename    添加文件到暂存区
+git commit -m ""    提交文件到版本库
+git push origin dev    推送到指定分支，要是有最新提交和当前推送的提交有冲突，则无法推送。
+git pull    先抓取远程分支修改，在本地合并，解决冲突，在推送
+
+git branch --set-upstream-to=origin/dev dev    指定本地分支与远程分支origin/dev的分支链接
+
+添加远程仓库并切换分支：
+先在git添加SSH Keyt
+git clone git@github.com:username/repo-name.git    克隆远程仓库
+git checkout -b branch-name    本地创建与远程仓库分支一样的分支
+git branch --set-upstream-to=origin/远程分支名 本地分知名
+
+Rebase:
+git rebase    把分叉的提交历史“整理”成一条直线
+
+创建标签：
+git branch    查看当前所属分支
+git checkout branch-name    切换到需要打标签的分支上
+git tag tag-name    给当前分支打标签
+git tag    查看所有标签
+git tag tag-name commit-id    给已经提交的commit打标签
+git show tag-name    查看标签信息
+git tag -a tag-name -m "" commit-id    创建带有说明的标签，-a指定标签名，-m指定说明文字
+
+操作标签：
+git tag -d tag-name    按照标签名删除标签
+git push origin tag-name    推送指定标签到远程仓库
+git push origin --tags    推送所有标签到远程仓库
+
+从远程仓库删除标签：
+git tag -d tag-name    删除本地标签
+git oush origin :refs/tags/tag-name    删除远程仓库tag
