@@ -278,3 +278,51 @@ https://github.com/github/gitignore
 /xxx/xxx/*    忽略某个路径下的所有文件
 
 git add -f filename    强制添加文件到Git，文件被添加到.gitignore忽略了，则需要使用此命令，强制添加
+
+配置别名：
+git config --global alias.st status    直接用git st就等于git status
+git config --global alias.co checkout
+git config --global alias.ci commit
+git config --global alias.br branch
+git config --global alias.unstage 'reset HEAD'    git reset HEAD filename
+git config --global alias.last 'log -1'    显示最后一次提交内容
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+配置git的时候加上--global时针对当前用户起作用，不加针对当前仓库起作用
+配置文件在： .git/config
+别名在[alias] 后面，要删除别名，删除对应行就行了
+当前用户配置文件放在用户主目录下的一个隐藏文件.gitconfig中
+git鼓励别名
+
+搭建git服务器：
+Ubuntu下搭建git服务器：
+1、安装Git：
+sudo apt-get install git
+2、创建git用户
+sudo adduser git
+3、创建证书登录：
+收集所有需要登录的用户公钥，就是id_rsa.pub文件，导入到/home/git/.ssh/authorzed_keys文件里，一行一个
+4、初始化仓库
+先选择一个目录作为git仓库，假定是/srv/sample.git
+cd /srv
+sudo git init --bare sample.git    创建一个裸仓库
+
+因为git仓库纯粹是为了共享，所以不让用户直接登录到服务器上更改工作区，并且服务器上的Git仓库通常都是以.git结尾。然后把owner改为git：
+sudo chown -R git:git sample.git
+
+5、禁用shell登录
+编辑/etc/passwd 找到类似：
+git:x:1001:1001:,,,:/home/git:/bin/bash
+改为：
+git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell
+
+这样git用户可以通过ssh使用git但是无法登录shell,因为我们为git用户指定的git-shell每次一登陆就自动退出
+
+6、克隆远程仓库
+git clone git@server:/srv/sample.git
+
+管理公钥，把每个人的公钥收集起来放到：
+/home/git/.ssh/authorized_keys
+
+公钥管理使用gitosis
+权限管理使用gitolite
