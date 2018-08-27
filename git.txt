@@ -1,3 +1,19 @@
+安装Git：
+Linux上安装Git：
+git    查看系统有没有安装git
+sudo apt-get install git    ubuntu安装Git
+sudo yum install git    CentOS安装Git
+
+手动编译安装：
+下载源码解压
+./config
+make
+sudo make install
+
+git config --global user.name "You Name"    设置用户名
+git config --global user.email "You Email"    设置邮箱
+--global参数表示这台机器上的所有Git仓库都会设用这个配置
+
 git init    初始化仓库
 
 git add filename    添加文件到仓库
@@ -220,3 +236,45 @@ git oush origin :refs/tags/tag-name    删除远程仓库tag
 1、在GitHub上Fork开源项目
 2、从自己的仓库clone Fork后的项目
 3、在GitHub上发起pull request，贡献代码到官方仓库
+
+使用码云：
+添加ssh key
+git remote add origin git@gitee.com:username/repo-name.git    关联本地仓库和远程仓库
+git push
+git pull
+
+若是报错：fatal: remote origin already exists.说明本地仓库已经关联一个叫origin的仓库了
+git remote -v    查看远程仓库信息
+git remote rm origin    删除已关联的远程仓库
+
+git remote add git@gitee.com:username/repo-name.git
+git remote -v    已经正确关联可以愉快的push了
+
+同步本地代码到两个远程仓库：
+git remote rm origin    删除已关联的origin仓库
+git remote add github git@github.com:username/repo-name.git    先关联GitHub，远程库名叫github
+git remote add gitee git@gitee.com:username/repo-name.git    在关联Gitee，远程库名叫gitee
+
+git mote -v    查看远程仓库信息，可以看到两个仓库
+
+同时和多个远程仓库同步：
+git push github master    推送到GitHub
+git push gitee master    推送到Gitee
+同时码云也可以Pull Request
+
+自定义Git：
+git config --global color.ui true    让Git显示颜色
+
+忽略特殊文件：
+针对需要又不能提交的文件，如配置文件
+在Git工作区根目录创建一个 .gitignore文件，把需要忽略的文件名填进去，Git会自动忽略这些文件
+
+或者直接使用GitHub为我们准备的各种配置文件：
+https://github.com/github/gitignore
+
+添加好之后把.gitignore 文件提交到Git
+在使用git status检验，是否输出：working directory clean
+
+/xxx/xxx/*    忽略某个路径下的所有文件
+
+git add -f filename    强制添加文件到Git，文件被添加到.gitignore忽略了，则需要使用此命令，强制添加
