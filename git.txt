@@ -71,6 +71,10 @@ rm filename    从本地删除文件
 
 
 远程仓库：
+创建SSH Key:
+ssh-keygen -t rsa -C "youremail@example.com"    替换邮箱，一路回车
+
+添加远程仓库：
 git remote add origin git@server-name:path/repo-name.git    关联远程仓库
 git remote add origin git@github.com:username/repo-name.git
 
@@ -78,6 +82,7 @@ git push -u origin master    第一次推送master分支的所有内容
 
 git push origin master    推送最新修改
 
+克隆远程仓库：
 git clone git@github.com:username/repo-name.git    克隆远程仓库到本地
 git clone https://github.com/username/repo-name.git    https协议克隆仓库
 
@@ -205,7 +210,7 @@ git pull    先抓取远程分支修改，在本地合并，解决冲突，在�
 git branch --set-upstream-to=origin/dev dev    指定本地分支与远程分支origin/dev的分支链接
 
 添加远程仓库并切换分支：
-先在git添加SSH Keyt
+先在git添加SSH Key
 git clone git@github.com:username/repo-name.git    克隆远程仓库
 git checkout -b branch-name    本地创建与远程仓库分支一样的分支
 git branch --set-upstream-to=origin/远程分支名 本地分知名
