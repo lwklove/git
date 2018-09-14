@@ -235,7 +235,7 @@ git push origin --tags    推送所有标签到远程仓库
 
 从远程仓库删除标签：
 git tag -d tag-name    删除本地标签
-git oush origin :refs/tags/tag-name    删除远程仓库tag
+git push origin :refs/tags/tag-name    删除远程仓库tag
 
 使用GitHub:
 参与一个开源项目，找到想参与的开源项目，fork一下，在从自己的仓库clone到本地，修改后推送到远程仓库，如果希望开源项目接受自己的修改，就在GitHub上发起一个 pull request给作者。
