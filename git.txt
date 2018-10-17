@@ -26,7 +26,7 @@ git diff filename    查看文件做了那些修改，不指定文件名查看�
 
 git log    查看提交记录，加--pretty=oneline参数。在一行显示
 
-git reset --hard HEAD^ 	回退到上个版本，HEAD^^回退到上上个版本，GEAD~100回退上100个版本，commit id 回退或者恢复指定提交版本，无需全部id号，确定唯一即可
+git reset --hard HEAD^ 	回退到上个版本，HEAD^^回退到上上个版本，HEAD~100回退上100个版本，commit id 回退或者恢复指定提交版本，无需全部id号，确定唯一即可
 
 git reflog    记录每一次操作的命令，回退版本时在恢复，可使用此命令查看 commit id
 
