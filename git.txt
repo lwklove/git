@@ -334,3 +334,28 @@ git clone git@server:/srv/sample.git
 
 公钥管理使用gitosis
 权限管理使用gitolite
+
+附加：
+已经由git管理的文件，忽略提交
+    备份需要忽略的文件 
+    copy test.text ../test.txt
+    
+    从git版本库删除要忽略的文件 
+    git rm test.txt
+
+    修改忽略规则
+    vim .gitignore.txt 或
+    echo "test.txt" >> .gitignore
+
+    提交.gitignore
+    git add .gitignore
+    got commit -m ""
+
+
+    找回忽略的文件
+    cp ../test.txt test.txt
+
+    查看版本库状态
+    git status
+
+    应该还有别的更好的方法实现，但是现在只能这样实现，有时间在研究
